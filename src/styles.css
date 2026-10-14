@@ -1,0 +1,332 @@
+/* styles.css — matched to New.jsx class names */
+:root{font-family:'DM Sans',sans-serif;color:#211b17;background:#f5eee6;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.site{max-width:1600px;margin:auto;background:#f5eee6;overflow:hidden}
+.site header{height:76px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}
+.logo{font:32px 'Playfair Display',serif;letter-spacing:-3px}
+.logo span{color:#bd8e5d}
+.site header nav{display:flex;gap:30px}
+.site header nav a,.navbtn{font-size:12px;transition:color .2s}
+.site header nav a:hover{color:#ad7950}
+.navbtn{background:#e8d8c8;border-radius:30px;padding:12px 17px;transition:transform .25s,background .25s}
+.navbtn:hover{transform:translateY(-2px);background:#d5b99e}
+.menubtn,.mobile{display:none}
+
+/* Hero image and overlay */
+.hero{height:min(740px,75vw);min-height:590px;position:relative;display:flex;align-items:center;color:#fff;background:#20150f;isolation:isolate;overflow:hidden}
+.hero>img,.herofallback,.hero>.shade{position:absolute;inset:0;width:100%;height:100%}
+.hero>img{object-fit:cover;object-position:center 35%;z-index:-2;transition:transform .7s}
+.hero:hover>img{transform:scale(1.015)}
+.herofallback{z-index:-3}
+.hero>.shade{z-index:-1;background:linear-gradient(90deg,#100c09d9,#100c0940 75%),linear-gradient(0deg,#160f0b55,transparent 40%);pointer-events:none}
+.herotxt{position:relative;z-index:1;padding:5%;max-width:700px}
+.eyebrow{font-size:10px;letter-spacing:3.5px;color:#b58a62;margin:0 0 18px}
+.hero .eyebrow,.contact .eyebrow{color:#e3c5a5}
+.hero h1,.about h2,.porthead h2,.contact h2,.modalbox h2{font:400 clamp(42px,6vw,78px)/1 'Playfair Display',serif;letter-spacing:-1.5px;margin:0}
+.herotxt>p:not(.eyebrow){font-size:13px;line-height:1.8;max-width:340px;color:#eee0d4;margin:22px 0}
+.pill{display:inline-flex;align-items:center;gap:13px;background:#f0d5bd;color:#21160f;padding:13px 19px;border:0;border-radius:30px;font-size:11px;transition:transform .3s,background .25s,box-shadow .3s}
+.pill:hover{transform:translateY(-3px);background:#d5ad88;box-shadow:0 10px 24px #0002}
+.scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;font-size:8px;letter-spacing:2px;white-space:nowrap;z-index:2}
+.scroll svg{transition:transform .3s}
+.scroll:hover svg{transform:translateY(4px)}
+
+/* Placeholder slots stay behind successfully loaded images */
+.slot{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:17px;border:1px solid #ffffff40;color:#fff4e8;font-size:8px;letter-spacing:1.5px;background:linear-gradient(135deg,#e0c7ae,#a47d60 50%,#e7d8c9);z-index:0;pointer-events:none}
+.slot small{align-self:flex-end;font-size:8px}
+.photo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px;background:linear-gradient(135deg,#e0c7ae,#a47d60 50%,#e7d8c9);color:#fff4e8;font-size:10px;z-index:2}
+.photo-placeholder small{font-size:9px}
+
+/* About */
+.about{padding:80px 6%;display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center}
+.aboutphoto{height:470px;position:relative;border-radius:150px 4px 4px 4px;overflow:hidden;background:linear-gradient(130deg,#e2c5a8,#88634a)}
+.aboutphoto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1}
+.aboutphoto>.slot{z-index:0}
+.about h2,.porthead h2{font-size:clamp(36px,4vw,54px)}
+.about p:not(.eyebrow){font-size:13px;line-height:1.9;color:#776b62;max-width:430px}
+.outline{display:inline-block;border:1px solid #bda58f;border-radius:25px;padding:11px 17px;font-size:11px;margin-top:9px;transition:background .2s,transform .2s}
+.outline:hover{background:#eadbce;transform:translateY(-2px)}
+
+/* Portfolio sections */
+.portfolio{padding:70px 5.2% 85px}
+.porthead{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px;gap:25px}
+.porthead p:last-child{max-width:260px;color:#82756b;font-size:12px;line-height:1.7}
+.groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.group{min-width:0}
+.cover{height:370px;position:relative;overflow:hidden;border-radius:5px;background:linear-gradient(145deg,#3a2a20,#b38a67);isolation:isolate}
+.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;transition:transform .6s,filter .3s}
+.cover>.slot{z-index:0}
+.group:hover .cover>img{transform:scale(1.045);filter:brightness(.78)}
+.coverShade{position:absolute;inset:0;z-index:2;background:linear-gradient(0deg,#110b08e8,transparent 75%);pointer-events:none}
+.covertext{position:absolute;z-index:3;bottom:18px;left:18px;right:15px;color:#fff4e8}
+.covertext small{font-size:9px;letter-spacing:2px;color:#e3c5a5;text-transform:uppercase}
+.covertext h3{font:35px 'Playfair Display',serif;margin:6px 0}
+.covertext p{font-size:11px;line-height:1.6;color:#ead9c9;min-height:34px}
+.covertext .pill{position:relative;z-index:4}
+.collage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:8px}
+.tile{height:110px;min-width:0;position:relative;overflow:hidden;background:#d5b79b;border-radius:3px}
+.tile>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;transition:transform .4s}
+.tile>.slot{z-index:0}
+.group:hover .tile>img{transform:scale(1.05)}
+
+/* Bottom contact section */
+.contact{min-height:280px;display:grid;place-items:center;text-align:center;position:relative;isolation:isolate;overflow:hidden;padding:48px 20px;color:#fff7ef}
+.contact>img,.contact>.slot,.contact>.shade{position:absolute;inset:0;width:100%;height:100%}
+.contact>img{object-fit:cover;object-position:center 35%;z-index:-2}
+.contact>.slot{z-index:-3}
+.contact>.shade{z-index:-1;background:#1a100ab8;pointer-events:none}
+.contact>div:not(.slot):not(.shade){position:relative;z-index:1}
+.contact h2{font-size:clamp(30px,4vw,48px)}
+.contact p:not(.eyebrow){font-size:12px;color:#e9d9cc;margin:15px 0 20px}
+
+/* Footer */
+.site footer{background:#15110e;color:#f4e9dd;padding:32px 5%;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.follow{display:flex;align-items:center;gap:12px}
+.follow strong{display:block;font:18px 'Playfair Display',serif;font-weight:400}
+.follow a{display:block;color:#c7ad96;font-size:11px;margin-top:5px}
+.footpics{display:flex;gap:10px}
+.footpic{position:relative;width:58px;height:58px;flex:0 0 58px;border-radius:50%;overflow:hidden;background:#b38a67}
+.footpic>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.footpic>.slot{z-index:0;padding:7px;font-size:6px}
+.insta{display:flex;gap:8px;align-items:center;border-left:1px solid #594739;padding-left:24px;font:italic 19px 'Playfair Display',serif;transition:color .2s}
+.insta:hover{color:#d9ad85}
+.credits{text-align:center;padding:13px;background:#100d0b;color:#827064;font-size:8px;letter-spacing:2px}
+
+/* Gallery modal: large image keeps its full aspect ratio */
+.modal{position:fixed;inset:0;z-index:100;background:#100c0be8;display:grid;place-items:center;padding:20px;backdrop-filter:blur(8px)}
+.modalbox{position:relative;background:#f5eee6;width:min(900px,100%);max-height:92vh;overflow:auto;border-radius:8px;padding:28px;color:#211b17}
+.close{position:absolute;right:18px;top:18px;z-index:5;border:1px solid #d9c8b8;border-radius:50%;width:38px;height:38px;background:transparent;display:grid;place-items:center;transition:transform .25s,background .25s}
+.close:hover{transform:rotate(90deg);background:#eadbce}
+.modalbox h2{font-size:42px}
+.muted{font-size:11px;color:#82756b}
+.feature{height:min(60vh,560px);min-height:260px;position:relative;overflow:hidden;background:#2c2119;border-radius:5px}
+.feature>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;z-index:1}
+.feature>.slot{z-index:0}
+.arr{position:absolute;z-index:3;top:50%;transform:translateY(-50%);border:1px solid #ffffff88;background:#17110dbb;color:#fff;border-radius:50%;width:42px;height:42px;display:grid;place-items:center;transition:background .2s,transform .2s}
+.arr:hover{background:#b58a62;transform:translateY(-50%) scale(1.06)}
+.arr.left{left:12px}.arr.right{right:12px}
+.thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}
+.thumbs button{position:relative;height:90px;min-width:0;border:2px solid transparent;padding:0;overflow:hidden;background:#d5b79b;border-radius:4px}
+.thumbs button.sel{border-color:#a8784e}
+.thumbs button>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1}
+.thumbs button>.slot{z-index:0;padding:8px}
+.modalbox>.eyebrow{margin-bottom:8px}
+
+/* Responsive */
+@media(max-width:800px){
+  .site header{height:68px}
+  .site header>nav,.navbtn{display:none}
+  .menubtn{display:grid;place-items:center;background:transparent;border:1px solid #d8c8b8;border-radius:50%;width:40px;height:40px}
+  .mobile{display:flex;position:absolute;top:62px;left:4%;right:4%;z-index:20;background:#f9f3ec;border:1px solid #e4d7ca;border-radius:10px;padding:12px;flex-direction:column;box-shadow:0 20px 40px #24160f25}
+  .mobile a{padding:14px;border-bottom:1px solid #e9ded4;font-size:13px}
+  .hero{height:650px}
+  .herotxt{padding:6%}
+  .about{padding:55px 6%;grid-template-columns:.9fr 1.1fr;gap:5%}
+  .aboutphoto{height:380px}
+  .groups{grid-template-columns:1fr;gap:25px}
+  .cover{height:380px}
+  .collage .tile{height:125px}
+  .porthead{align-items:start;flex-direction:column;gap:5px}
+  .site footer{flex-wrap:wrap}
+  .footpics{order:3;width:100%;justify-content:center}
+  .insta{margin-left:auto}
+}
+@media(max-width:520px){
+  .hero{min-height:590px;height:650px}
+  .herotxt{padding:6%}
+  .hero h1{font-size:53px}
+  .about{grid-template-columns:1fr;gap:25px}
+  .aboutphoto{height:390px}
+  .cover{height:350px}
+  .collage .tile{height:95px}
+  .contact h2{font-size:34px}
+  .site footer{padding:28px 6%}
+  .footpic{width:50px;height:50px;flex-basis:50px}
+  .insta{font-size:17px;padding-left:16px}
+  .modal{padding:10px}
+  .modalbox{padding:22px 14px}
+  .modalbox h2{font-size:35px}
+  .feature{height:55vh;min-height:240px}
+  .thumbs button{height:65px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+/* FINAL IMAGE-FIT FIX FOR New.jsx */
+
+/* Prevent images from overflowing their containers */
+.cover,
+.tile,
+.feature,
+.thumbs button,
+.footpic,
+.aboutphoto {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Collection cover photos */
+.cover > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Western, Traditional and Malabar collage images */
+.tile > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Main gallery: fill the entire photo area */
+.feature {
+  width: 100%;
+  height: min(65vh, 600px);
+  min-height: 280px;
+  background: #2c2119;
+}
+
+.feature > img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+/* Keep gallery controls visible */
+.feature > .slot {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.feature > .arr {
+  z-index: 3;
+}
+
+/* Four gallery thumbnails */
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.thumbs button {
+  height: 110px;
+  min-width: 0;
+}
+
+.thumbs button > img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+/* About portrait */
+.aboutphoto > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Footer photos */
+.footpic > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .feature {
+    height: 55vh;
+    min-height: 240px;
+  }
+
+  .thumbs button {
+    height: 75px;
+  }
+}
+
+
+
+
+
+/* Desktop-only image layout fix */
+@media (min-width: 801px) {
+
+  /* Keep the three collection cards aligned */
+  .groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 18px;
+  }
+
+  /* Consistent collection cover proportions */
+  .cover {
+    height: auto;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .cover > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Consistent collage thumbnails */
+  .collage {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .tile {
+    height: auto;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .tile > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Full portrait gallery, without stretching */
+  .feature {
+    width: auto;
+    height: min(68vh, 650px);
+    aspect-ratio: 3 / 4;
+    max-width: 100%;
+    margin: 18px auto 0;
+    background: #2c2119;
+  }
+
+  .feature > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
